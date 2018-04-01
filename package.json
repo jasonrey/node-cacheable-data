@@ -1,0 +1,9 @@
+{
+  "name": "node-cacheable-data",
+  "version": "1.0.0",
+  "description": "Cache data in memory.",
+  "main": "index.js",
+  "repository": "git@github.com:jasonrey/node-cacheable-data.git",
+  "author": "JSON object <jsonobject@outlook.com>",
+  "license": "MIT"
+}
