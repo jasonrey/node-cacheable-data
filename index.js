@@ -1,27 +1,28 @@
-const Cacheable = function Cacheable (fx) {
-  this.data = null
+module.exports = fx => {
+  const cacheable = fx => {
+    cacheable.data = null
+    cacheable.loaded = false
 
-  this.loaded = false
+    const returnfx = async () => {
+      if (!cacheable.loaded) {
+        await returnfx.refresh()
+      }
 
-  const returnfx = async () => {
-    if (!this.loaded) {
-      await returnfx.refresh()
+      return cacheable.data
     }
 
-    return this.data
+    returnfx.refresh = async () => {
+      cacheable.loaded = true
+
+      const data = await fx()
+
+      cacheable.data = data
+
+      return data
+    }
+
+    return returnfx
   }
 
-  returnfx.refresh = async () => {
-    this.loaded = true
-
-    const data = await fx()
-
-    this.data = data
-
-    return data
-  }
-
-  return returnfx
+  return cacheable(fx)
 }
-
-module.exports = Cacheable
