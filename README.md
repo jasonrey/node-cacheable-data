@@ -17,12 +17,34 @@ CacheWrapper returned by `cacheable` method, contains the `refresh` method, whic
 ## Usage
 
 ```
-const cacheable = require('cacheable')
+const cacheable = require('cacheable-data')
 
 const cacheWrapper = cacheable(() => {
   // Your custom function to load the data
   // Should return a Promise that resolves to the data to cache
 })
 
+// Will only run the custom function once, and return cached data subsequently.
 const cachedData = await cacheWrapper()
+
+// Will refresh internal cache.
+const refreshedData = await cacheWrapper.refresh()
+```
+
+## Example
+
+```
+const cacheable = require('cacheable-data')
+
+const cacheWrapper = cacheable(async () => Date.now())
+
+;(async () => {
+  console.log(await cacheWrapper()) // 1522628133629
+
+  console.log(await cacheWrapper()) // 1522628133629
+
+  console.log(await cacheWrapper.refresh()) // 1522628175880
+
+  console.log(await cacheWrapper()) // 1522628175880
+})()
 ```
