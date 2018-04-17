@@ -12,11 +12,10 @@ module.exports = fx => {
     }
 
     returnfx.refresh = async () => {
-      cacheable.loaded = true
-
       const data = await fx()
 
       cacheable.data = data
+      cacheable.loaded = true
 
       return data
     }

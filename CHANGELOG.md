@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.0.3]
+### Fixed
+- Fix possible racing condition on loaded state checking
+
 ## [1.0.2] - 2018-04-02
 ### Fixed
 - Fix cacheable function to use new instance per call
