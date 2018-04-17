@@ -2,10 +2,16 @@ module.exports = fx => {
   const cacheable = fx => {
     cacheable.data = null
     cacheable.loaded = false
+    cacheable.process = null
 
     const returnfx = async () => {
+      if (cacheable.process) {
+        return cacheable.process
+      }
+
       if (!cacheable.loaded) {
-        await returnfx.refresh()
+        cacheable.process = returnfx.refresh()
+        await cacheable.process
       }
 
       return cacheable.data

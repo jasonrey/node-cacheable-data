@@ -3,6 +3,7 @@
 ## [1.0.3]
 ### Fixed
 - Fix possible racing condition on loaded state checking
+- Fix unifying mulitple parallel calls before load complete
 
 ## [1.0.2] - 2018-04-02
 ### Fixed
