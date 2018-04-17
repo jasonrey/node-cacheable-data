@@ -1,6 +1,11 @@
-const cacheable = require('./')
+const cacheable = require('../')
 
-const cacheWrapper = cacheable(async () => Date.now())
+const delay = (ms = 2000) => new Promise(resolve => setTimeout(resolve, ms))
+
+const cacheWrapper = cacheable(async () => {
+  await delay()
+  return Date.now()
+})
 
 ;(async () => {
   console.log(await cacheWrapper()) // 1522628353835

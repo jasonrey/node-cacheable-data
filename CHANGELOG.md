@@ -5,6 +5,9 @@
 - Fix possible racing condition on loaded state checking
 - Fix unifying mulitple parallel calls before load complete
 
+### Updated
+- Update sample files
+
 ## [1.0.2] - 2018-04-02
 ### Fixed
 - Fix cacheable function to use new instance per call
