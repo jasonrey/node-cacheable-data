@@ -3,6 +3,7 @@
   "version": "1.0.3",
   "description": "Cache data in memory.",
   "main": "index.js",
+  "types": "index.d.ts",
   "repository": "git@github.com:jasonrey/node-cacheable-data.git",
   "author": "JSON object <jsonobject@outlook.com>",
   "license": "MIT"
